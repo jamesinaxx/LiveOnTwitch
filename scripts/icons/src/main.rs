@@ -1,3 +1,6 @@
+use std::path::Path;
+
+use dunce::canonicalize;
 use image::{imageops::FilterType, ImageFormat};
 use rayon::prelude::*;
 
@@ -7,16 +10,17 @@ const MANIFEST_DIR: &str = env!("CARGO_MANIFEST_DIR");
 
 fn main() -> anyhow::Result<()> {
     let img = image::load_from_memory(ICON_BYTES)?;
-    let dest_path = std::env::current_dir()?.join("../../src/assets/icons");
+    let dest_path = Path::new(MANIFEST_DIR).join("../../src/assets/icons");
+    let dest_path_canonical = canonicalize(dest_path)?;
 
-    std::fs::create_dir_all(&dest_path)?;
+    std::fs::create_dir_all(&dest_path_canonical)?;
 
     SIZES.into_par_iter().for_each(|size| {
         let img = img.clone();
         let resized = img.resize(size, size, FilterType::Nearest);
 
         let image_name = format!("{}.png", size);
-        let image_path = dest_path.join(image_name);
+        let image_path = dest_path_canonical.join(image_name);
         let res = resized.save_with_format(image_path, ImageFormat::Png);
 
         if let Err(err) = res {
