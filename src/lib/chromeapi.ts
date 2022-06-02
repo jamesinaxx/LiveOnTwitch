@@ -1,10 +1,11 @@
+import browser from 'webextension-polyfill';
 import { clientId } from './lib';
 import { error } from './logger';
 import type { Local, Synced } from '../types/chrome';
 import type { TwitchStream, TwitchUser } from '../types/twitch';
 
 export function setStorage(key: Synced, value: unknown): Promise<void> {
-  return chrome.storage.sync.set({ [key]: value });
+  return browser.storage.sync.set({ [key]: value });
 }
 
 export function getStorage(
@@ -14,12 +15,12 @@ export function getStorage(key: 'NowLive:Token'): Promise<string | undefined>;
 export function getStorage(key: Synced): Promise<unknown>;
 export function getStorage<T>(key: Synced): Promise<T | undefined> {
   return new Promise((resolve) => {
-    chrome.storage.sync.get(key, (res) => resolve(res[key]));
+    browser.storage.sync.get(key, (res) => resolve(res[key]));
   });
 }
 
 export function setStorageLocal(key: Local, value: unknown): Promise<void> {
-  return chrome.storage.local.set({ [key]: value });
+  return browser.storage.local.set({ [key]: value });
 }
 
 export function getStorageLocal(
@@ -30,7 +31,7 @@ export function getStorageLocal(
 ): Promise<'light' | 'dark'>;
 export function getStorageLocal<T>(key: Local): Promise<T> {
   return new Promise((resolve) => {
-    chrome.storage.local.get(key, (res) => resolve(res[key]));
+    browser.storage.local.get(key, (res) => resolve(res[key]));
   });
 }
 
@@ -64,10 +65,10 @@ const blobToBase64 = (blob: Blob): Promise<string> => {
 export async function getChannelInfo(): Promise<void> {
   const token = await getStorage('NowLive:Token');
   if (!token) {
-    await chrome.action.setTitle({
+    await browser.action.setTitle({
       title: 'Please verify Now Live',
     });
-    await chrome.action.setBadgeText({ text: '' });
+    await browser.action.setBadgeText({ text: '' });
     return;
   }
   try {
@@ -140,7 +141,7 @@ export async function getChannelInfo(): Promise<void> {
 
     const streamingNow = Number(data.length.toString());
 
-    const { setTitle, setBadgeText } = chrome.action;
+    const { setTitle, setBadgeText } = browser.action;
 
     if (streamingNow !== 0) {
       await setTitle({

@@ -6,6 +6,7 @@ import {
   SetStateAction,
   useContext,
 } from 'react';
+import browser from 'webextension-polyfill';
 import Channel from '../components/Channel';
 import { getStorage, getStorageLocal, setStorage } from '../lib/chromeapi';
 import NoLiveChannels from '../components/NoLiveChannels';
@@ -25,7 +26,7 @@ const Live: FunctionComponent = () => {
   const [channels, setChannels] = useState<ChannelsType>(undefined);
 
   useEffect(() => {
-    chrome.storage.onChanged.addListener(() => updateChannels(setChannels));
+    browser.storage.onChanged.addListener(() => updateChannels(setChannels));
     (async () => {
       setChannels(await getStorageLocal('NowLive:Channels'));
       setFavoriteChannels((await getStorage('NowLive:Favorites')) || []);

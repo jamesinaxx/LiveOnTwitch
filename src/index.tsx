@@ -1,5 +1,6 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import { render } from 'react-dom';
+import browser from 'webextension-polyfill';
 import {
   type DefaultTheme,
   ThemeProvider,
@@ -45,7 +46,7 @@ const App: FunctionComponent = () => {
     };
 
     updateTheme();
-    chrome.storage.onChanged.addListener((changes, areaName) => {
+    browser.storage.onChanged.addListener((changes, areaName) => {
       if (areaName === 'local' && 'NowLive:Theme' in changes) {
         updateTheme();
       }

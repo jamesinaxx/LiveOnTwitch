@@ -1,4 +1,5 @@
 import { FunctionComponent, useContext, useEffect, useState } from 'react';
+import browser from 'webextension-polyfill';
 import Live from './Live';
 import { getChannelInfo, getStorage, setStorage } from '../lib/chromeapi';
 import NoAuthPage from './NoAuth';
@@ -30,7 +31,7 @@ const Main: FunctionComponent = () => {
     (async () => {
       await validateToken();
 
-      chrome.storage.onChanged.addListener(async (changes, area) => {
+      browser.storage.onChanged.addListener(async (changes, area) => {
         if (area === 'sync' && 'NowLive:Token' in changes) {
           await validateToken();
         }

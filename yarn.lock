@@ -658,6 +658,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/webextension-polyfill@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "@types/webextension-polyfill@npm:0.9.0"
+  checksum: 7e266d0bb08ccdb6d7f49e1312600ae7471cfce053dc5843a0309e1f58f98f4234ffead76473261fa34e03069f4da74c6ffa312ddbcf915c0229a869188dcc1c
+  languageName: node
+  linkType: hard
+
 "@types/webpack-bundle-analyzer@npm:4.4.1":
   version: 4.4.1
   resolution: "@types/webpack-bundle-analyzer@npm:4.4.1"
@@ -3117,6 +3124,7 @@ __metadata:
     "@types/react": 17.0.39
     "@types/react-dom": 17.0.13
     "@types/styled-components": ^5
+    "@types/webextension-polyfill": ^0.9.0
     "@types/webpack-bundle-analyzer": 4.4.1
     "@typescript-eslint/eslint-plugin": 5.14.0
     "@typescript-eslint/parser": 5.14.0
