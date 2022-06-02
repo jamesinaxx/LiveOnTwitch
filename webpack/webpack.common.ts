@@ -95,6 +95,8 @@ const config: Configuration = {
           ],
         };
 
+        console.log(JSON.stringify(files));
+
         const newFiles = files.map((file) => ({
           ...file,
           path: file.path.replace('auto', ''),
