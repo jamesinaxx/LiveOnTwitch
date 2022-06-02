@@ -39,7 +39,7 @@ fn main() -> anyhow::Result<()> {
         .icons
         .keys()
         .map(|x| parse_size(x))
-        .collect::<Result<Vec<u32>, _>>()?;
+        .collect::<Result<Vec<_>, _>>()?;
 
     let dest_path = get_canon_path()?;
 
