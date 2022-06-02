@@ -1,6 +1,6 @@
 keys/
 *.crx
-src/icons
+src/assets/icons
 
 config.json
 
