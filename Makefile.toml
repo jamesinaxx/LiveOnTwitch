@@ -14,3 +14,8 @@ args = ["run", "build"]
 dependencies = ["build"]
 command = "yarn"
 args = ["run", "lint:ext"]
+
+[tasks.bundle]
+dependencies = ["build"]
+command = "yarn"
+args = ["run", "web-ext", "build", "-s", "dist"]
