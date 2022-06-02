@@ -1,2 +1,6 @@
 [workspace]
-members = ["scripts/*"]
+members = ["scripts/*", "fac"]
+
+[profile.release]
+lto = true
+opt-level = "s"
