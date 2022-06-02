@@ -10,7 +10,7 @@ const MANIFEST_DIR: &str = env!("CARGO_MANIFEST_DIR");
 
 fn main() -> anyhow::Result<()> {
     let img = image::load_from_memory(ICON_BYTES)?;
-    let dest_path = Path::new(MANIFEST_DIR).join("../../src/assets/icons");
+    let dest_path = Path::new(MANIFEST_DIR).join("../src/assets/icons");
     let dest_path_canonical = canonicalize(dest_path)?;
 
     std::fs::create_dir_all(&dest_path_canonical)?;
