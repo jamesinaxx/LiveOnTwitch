@@ -44,17 +44,17 @@ const config: Configuration = {
         } = require('../package.json');
 
         const baseManifest = {
+          name: displayName,
           version,
           description,
-          name: displayName,
+          author: 'Juliette Cordor',
           manifest_version: 3,
           action: {
             default_popup: 'index.html',
             default_title: 'See who is live',
           },
-          minimum_chrome_version: '88',
           background: {
-            service_worker: 'SERVICE_WORKER',
+            scripts: ['SERVICE_WORKER'],
           },
           icons: {
             16: 'icons/16.png',
@@ -86,8 +86,8 @@ const config: Configuration = {
           ({ name }) => name === 'authcheck.js',
         ) as FileDescriptor;
 
-        baseManifest.background.service_worker = backgroundJs.path;
-        baseManifest.content_scripts[0].js = [authcheckJs.path];
+        baseManifest.background.scripts[-1] = backgroundJs.path;
+        baseManifest.content_scripts[-1].js = [authcheckJs.path];
 
         return { ...baseManifest };
       },
