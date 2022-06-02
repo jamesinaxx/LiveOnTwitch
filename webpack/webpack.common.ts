@@ -9,7 +9,28 @@ import type { FileDescriptor } from 'webpack-manifest-plugin/dist/helpers';
 import rules from './webpack.rules';
 
 interface Manifest {
+  author: string;
+  manifest_version: number;
+  browser_action: BrowserAction;
+  background: Background;
+  icons: { [key: string]: string };
+  permissions: string[];
+  content_scripts: ContentScript[];
   [key: string]: any;
+}
+
+interface Background {
+  scripts: string[];
+}
+
+interface BrowserAction {
+  default_popup: string;
+  default_title: string;
+}
+
+interface ContentScript {
+  matches: string[];
+  js: string[];
 }
 
 const config: Configuration = {
