@@ -2,9 +2,10 @@ use image::{imageops::FilterType, ImageFormat};
 use rayon::prelude::*;
 
 const SIZES: [u32; 6] = [16, 32, 48, 64, 96, 128];
+const ICON_BYTES: &[u8] = include_bytes!("icon.png");
 
 fn main() -> anyhow::Result<()> {
-    let img = image::open("./icon.png")?;
+    let img = image::load_from_memory(ICON_BYTES)?;
     let dest_path = std::env::current_dir()?.join("../../src/assets/icons");
 
     std::fs::create_dir_all(&dest_path)?;
