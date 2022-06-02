@@ -6,7 +6,6 @@ use rayon::prelude::*;
 
 mod manifest;
 
-const SIZES: [u32; 6] = [16, 32, 48, 64, 96, 128];
 const ICON_BYTES: &[u8] = include_bytes!("icon.png");
 const EXT_MANIFEST_STR: &str = include_str!("../../../src/assets/base_manifest.json");
 
@@ -45,7 +44,7 @@ fn main() -> anyhow::Result<()> {
 
     std::fs::create_dir_all(&dest_path)?;
 
-    SIZES.into_par_iter().for_each(|size| {
+    sizes.into_par_iter().for_each(|size| {
         let img = img.clone();
         let resized = img.resize(size, size, FilterType::Nearest);
 
