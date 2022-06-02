@@ -1,6 +1,7 @@
 keys/
 *.crx
 src/assets/icons
+/web-ext-artifacts
 
 config.json
 
