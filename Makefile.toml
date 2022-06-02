@@ -1,0 +1,3 @@
+[tasks.icons]
+command = "cargo"
+args = ["run", "--bin", "icons"]
