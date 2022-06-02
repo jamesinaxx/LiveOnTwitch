@@ -1,10 +1,12 @@
 build-fac:
 	cd fac; wasm-pack build --release
+	cp fac/pkg/ src/fac -r
+	rm pkg/package.json
 
 build-icons:
 	cargo run --bin icons
 
-build: build-fac build-icons
+build: build-icons
 	yarn build
 
 lint: build

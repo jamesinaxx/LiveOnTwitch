@@ -16,7 +16,8 @@
     "icons": "cargo run --bin icons",
     "lint": "eslint ./src/*/**.{ts,tsx} --ignore-path .gitignore",
     "lint:ext": "web-ext lint -s dist",
-    "lint:fix": "eslint ./src/*/**.{ts,tsx} --ignore-path .gitignore --fix"
+    "lint:fix": "eslint ./src/*/**.{ts,tsx} --ignore-path .gitignore --fix",
+    "prepare": "yarn build"
   },
   "dependencies": {
     "fast-average-color": "7.1.0",
@@ -41,6 +42,7 @@
     "@types/webpack-bundle-analyzer": "4.4.1",
     "@typescript-eslint/eslint-plugin": "5.14.0",
     "@typescript-eslint/parser": "5.14.0",
+    "@wasm-tool/wasm-pack-plugin": "^1.6.0",
     "browserslist": "4.20.0",
     "dotenv-webpack": "7.1.0",
     "eslint": "8.10.0",
