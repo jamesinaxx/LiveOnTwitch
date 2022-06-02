@@ -8,6 +8,10 @@ import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 import type { FileDescriptor } from 'webpack-manifest-plugin/dist/helpers';
 import rules from './webpack.rules';
 
+interface Manifest {
+  [key: string]: any;
+}
+
 const config: Configuration = {
   entry: {
     index: path.resolve(__dirname, '..', 'src', 'index'),
@@ -43,10 +47,7 @@ const config: Configuration = {
           // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         } = require('../package.json');
 
-        const baseManifest = {
-          name: displayName,
-          version,
-          description,
+        const baseManifest: Manifest = {
           author: 'Juliette Cordor',
           manifest_version: 2,
           browser_action: {
@@ -87,6 +88,9 @@ const config: Configuration = {
 
         baseManifest.background.scripts[0] = backgroundJs.path;
         baseManifest.content_scripts[0].js[0] = authcheckJs.path;
+        baseManifest.description = description;
+        baseManifest.name = displayName;
+        baseManifest.version = version;
 
         return { ...baseManifest };
       },
