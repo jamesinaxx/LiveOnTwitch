@@ -23,7 +23,7 @@ fn parse_manifest() -> anyhow::Result<manifest::Manifest> {
     Ok(ext_manifest)
 }
 
-fn parse_size(path: String) -> Result<u32, std::num::ParseIntError> {
+fn parse_size(path: &str) -> Result<u32, std::num::ParseIntError> {
     // Removes the icons/ from the path
     let file_name = &path[0..5];
     // Gets everything but the .png extension
