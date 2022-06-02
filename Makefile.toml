@@ -9,3 +9,8 @@ args = ["run", "--bin", "icons"]
 dependencies = ["icons"]
 command = "yarn"
 args = ["run", "build"]
+
+[tasks.ext-lint]
+dependencies = ["build"]
+command = "yarn"
+args = ["run", "lint:ext"]

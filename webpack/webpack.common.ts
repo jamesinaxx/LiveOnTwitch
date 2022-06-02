@@ -48,8 +48,8 @@ const config: Configuration = {
           version,
           description,
           author: 'Juliette Cordor',
-          manifest_version: 3,
-          action: {
+          manifest_version: 2,
+          browser_action: {
             default_popup: 'index.html',
             default_title: 'See who is live',
           },
@@ -65,11 +65,10 @@ const config: Configuration = {
             128: 'icons/128.png',
           },
           permissions: ['storage', 'alarms'],
-          host_permissions: ['*://*.twitch.tv/*'],
           content_scripts: [
             {
               matches: ['*://nowlive.jamesinaxx.me/auth/callback'],
-              js: ['browser-polyfill.js', 'CONTENT_SCRIPT'],
+              js: ['CONTENT_SCRIPT'],
             },
           ],
         };
@@ -86,8 +85,8 @@ const config: Configuration = {
           ({ name }) => name === 'authcheck.js',
         ) as FileDescriptor;
 
-        baseManifest.background.scripts[-1] = backgroundJs.path;
-        baseManifest.content_scripts[-1].js = [authcheckJs.path];
+        baseManifest.background.scripts[0] = backgroundJs.path;
+        baseManifest.content_scripts[0].js[0] = authcheckJs.path;
 
         return { ...baseManifest };
       },
