@@ -4,6 +4,8 @@ use dunce::canonicalize;
 use image::{imageops::FilterType, ImageFormat};
 use rayon::prelude::*;
 
+mod manifest;
+
 const SIZES: [u32; 6] = [16, 32, 48, 64, 96, 128];
 const ICON_BYTES: &[u8] = include_bytes!("icon.png");
 const MANIFEST_DIR: &str = env!("CARGO_MANIFEST_DIR");
