@@ -63,14 +63,13 @@ const config: Configuration = {
             64: 'icons/64.png',
             96: 'icons/96.png',
             128: 'icons/128.png',
-            256: 'icons/256.png',
           },
           permissions: ['storage', 'alarms'],
           host_permissions: ['*://*.twitch.tv/*'],
           content_scripts: [
             {
               matches: ['*://nowlive.jamesinaxx.me/auth/callback'],
-              js: ['CONTENT_SCRIPT'],
+              js: ['browser-polyfill.js', 'CONTENT_SCRIPT'],
             },
           ],
         };
@@ -90,7 +89,7 @@ const config: Configuration = {
         baseManifest.background.service_worker = backgroundJs.path;
         baseManifest.content_scripts[0].js = [authcheckJs.path];
 
-        return { ...baseManifest } as never;
+        return { ...baseManifest };
       },
     }),
   ],
