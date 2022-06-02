@@ -35,11 +35,11 @@ fn parse_size(path: &str) -> Result<u32, std::num::ParseIntError> {
 fn main() -> anyhow::Result<()> {
     let img = image::load_from_memory(ICON_BYTES)?;
     let manifest = parse_manifest()?;
-    let sizes: &[u32] = manifest
+    let sizes = manifest
         .icons
         .keys()
-        .map(parse_size)
-        .collect::<Vec<Result<u32, _>>>()?;
+        .map(|x| parse_size(x))
+        .collect::<Result<Vec<u32>, _>>()?;
 
     let dest_path = get_canon_path()?;
 
