@@ -4,3 +4,8 @@ CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
 [tasks.icons]
 command = "cargo"
 args = ["run", "--bin", "icons"]
+
+[tasks.build]
+dependencies = ["icons"]
+command = "yarn"
+args = ["run", "build"]
