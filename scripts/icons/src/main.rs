@@ -22,22 +22,13 @@ fn parse_manifest() -> anyhow::Result<manifest::Manifest> {
     Ok(ext_manifest)
 }
 
-fn parse_size(path: &str) -> Result<u32, std::num::ParseIntError> {
-    // Removes the icons/ from the path
-    let file_name = &path[0..5];
-    // Gets everything but the .png extension
-    let size = &file_name[..(file_name.len() - 4)];
-
-    size.parse::<u32>()
-}
-
 fn main() -> anyhow::Result<()> {
     let img = image::load_from_memory(ICON_BYTES)?;
     let manifest = parse_manifest()?;
     let sizes = manifest
         .icons
         .keys()
-        .map(|x| parse_size(x))
+        .map(|x| x.parse::<u32>())
         .collect::<Result<Vec<_>, _>>()?;
 
     let dest_path = get_canon_path()?;
