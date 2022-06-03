@@ -4,9 +4,9 @@ use dunce::canonicalize;
 use image::{imageops::FilterType, ImageFormat};
 use rayon::prelude::*;
 
+mod icon;
 mod manifest;
 
-const ICON_BYTES: &[u8] = include_bytes!("icon.png");
 const EXT_MANIFEST_STR: &str = include_str!("../../../src/assets/base_manifest.json");
 
 fn get_canon_path() -> anyhow::Result<PathBuf> {
@@ -23,7 +23,7 @@ fn parse_manifest() -> anyhow::Result<manifest::Manifest> {
 }
 
 fn main() -> anyhow::Result<()> {
-    let img = image::load_from_memory(ICON_BYTES)?;
+    let img = image::load_from_memory(icon::ICON_BYTES)?;
     let manifest = parse_manifest()?;
     let sizes = manifest
         .icons
