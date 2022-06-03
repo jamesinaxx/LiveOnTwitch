@@ -232,6 +232,9 @@ dependencies = [
 [[package]]
 name = "env"
 version = "0.1.0"
+dependencies = [
+ "wasm-bindgen",
+]
 
 [[package]]
 name = "exr"
