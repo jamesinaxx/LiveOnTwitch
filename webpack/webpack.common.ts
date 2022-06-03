@@ -8,31 +8,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { WebpackManifestPlugin } from 'webpack-manifest-plugin';
 import type { FileDescriptor } from 'webpack-manifest-plugin/dist/helpers';
 import rules from './webpack.rules';
-
-interface Manifest {
-  author: string;
-  manifest_version: number;
-  browser_action: BrowserAction;
-  background: Background;
-  icons: { [key: string]: string };
-  permissions: string[];
-  content_scripts: ContentScript[];
-  [key: string]: any;
-}
-
-interface Background {
-  scripts: string[];
-}
-
-interface BrowserAction {
-  default_popup: string;
-  default_title: string;
-}
-
-interface ContentScript {
-  matches: string[];
-  js: string[];
-}
+import baseManifest from '../src/assets/base_manifest.json';
 
 const config: Configuration = {
   entry: {
@@ -79,33 +55,6 @@ const config: Configuration = {
           displayName,
           // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         } = require('../package.json');
-
-        const baseManifest: Manifest = {
-          author: 'Juliette Cordor',
-          manifest_version: 2,
-          browser_action: {
-            default_popup: 'index.html',
-            default_title: 'See who is live',
-          },
-          background: {
-            scripts: ['SERVICE_WORKER'],
-          },
-          icons: {
-            16: 'icons/16.png',
-            32: 'icons/32.png',
-            48: 'icons/48.png',
-            64: 'icons/64.png',
-            96: 'icons/96.png',
-            128: 'icons/128.png',
-          },
-          permissions: ['storage', 'alarms'],
-          content_scripts: [
-            {
-              matches: ['*://nowlive.jamesinaxx.me/auth/callback'],
-              js: ['CONTENT_SCRIPT'],
-            },
-          ],
-        };
 
         const newFiles = files.map((file) => ({
           ...file,
