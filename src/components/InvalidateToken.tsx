@@ -28,10 +28,12 @@ const ChoiceButtonButton = styled.button<{ confirm: boolean }>`
   &:active {
     background-color: ${buttonClicked};
   }
-  border-radius: ${(props) =>
-    props.confirm
-      ? '100%, 0px, 0px, 100%'
-      : 'border-radius: 0px, 100%, 100%, 0px;'};
+  border-radius: ${(props) => {
+    if (props.confirm) {
+      return '100%, 0px, 0px, 100%';
+    }
+    return 'border-radius: 0px, 100%, 100%, 0px;';
+  }};
 `;
 
 const ChoiceButton: FunctionComponent<ChoiceButtonProps> = ({
