@@ -1,4 +1,4 @@
-import { EnvFile } from '../../pkg-env/index';
+import { EnvFile } from '../../pkg-env/env';
 
 const env = new EnvFile();
 
