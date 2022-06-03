@@ -69,6 +69,7 @@ const config = {
     'object-curly-newline': ['off'],
     'react/function-component-definition': 'off',
     'react/destructuring-assignment': 'off',
+    'import/no-relative-packages': 'off',
   },
 };
 

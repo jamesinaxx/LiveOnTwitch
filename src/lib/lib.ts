@@ -1,4 +1,8 @@
-export const clientId = process.env.CLIENT_ID;
+import { EnvFile } from '../../pkg-env/index';
+
+const env = new EnvFile();
+
+export const clientId = env.client_id;
 
 interface fetchOptions extends RequestInit {
   timeout?: number | undefined;
