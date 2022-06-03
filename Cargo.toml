@@ -1,5 +1,5 @@
 [workspace]
-members = ["scripts/*", "fac"]
+members = ["scripts/*", "fac", "env"]
 
 [profile.release]
 lto = true
