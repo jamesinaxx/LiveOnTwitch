@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Configuration } from 'webpack';
 import DotenvPlugin from 'dotenv-webpack';
-import WasmPackPlugin from '@wasm-tool/wasm-pack-plugin';
+// import WasmPackPlugin from '@wasm-tool/wasm-pack-plugin';
 import path from 'path';
 import EslintPlugin from 'eslint-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -29,14 +29,14 @@ const config: Configuration = {
     rules,
   },
   plugins: [
-    new WasmPackPlugin({
-      crateDirectory: path.resolve(__dirname, '..', 'fac'),
-      outDir: path.resolve(__dirname, '..', 'pkg-fac'),
-    }),
-    new WasmPackPlugin({
-      crateDirectory: path.resolve(__dirname, '..', 'env'),
-      outDir: path.resolve(__dirname, '..', 'pkg-env'),
-    }),
+    // new WasmPackPlugin({
+    //   crateDirectory: path.resolve(__dirname, '..', 'fac'),
+    //   outDir: path.resolve(__dirname, '..', 'pkg-fac'),
+    // }),
+    // new WasmPackPlugin({
+    //   crateDirectory: path.resolve(__dirname, '..', 'env'),
+    //   outDir: path.resolve(__dirname, '..', 'pkg-env'),
+    // }),
     new EslintPlugin({ eslintPath: require.resolve('eslint') }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', 'src', 'template.html'),
