@@ -40,6 +40,9 @@ const config: Configuration = {
     background: path.resolve(__dirname, '..', 'src', 'scripts', 'background'),
     authcheck: path.resolve(__dirname, '..', 'src', 'scripts', 'authcheck'),
   },
+  experiments: {
+    asyncWebAssembly: true,
+  },
   output: {
     filename: '[name].[contenthash].js',
   },
