@@ -8,6 +8,11 @@
         "drop_console": true
       }
     },
+    "transform": {
+      "react": {
+        "pragma": "jsx"
+      }
+    },
     "externalHelpers": true,
     "target": "es2015",
     "parser": {

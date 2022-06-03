@@ -4,6 +4,10 @@ export default [
   {
     test: /\.m?[jt]sx?$/,
     include: path.resolve(__dirname, '..', 'src'),
-    use: ['swc-loader'],
+    loader: 'esbuild-loader',
+    options: {
+      loader: 'tsx',
+      target: 'es2015',
+    },
   },
 ];
