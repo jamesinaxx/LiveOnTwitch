@@ -3,6 +3,8 @@ keys/
 src/assets/icons
 /web-ext-artifacts
 
+pkg*/
+
 config.json
 
 # Logs

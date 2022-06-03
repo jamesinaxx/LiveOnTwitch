@@ -52,7 +52,11 @@ const config: Configuration = {
   plugins: [
     new WasmPackPlugin({
       crateDirectory: path.resolve(__dirname, '..', 'fac'),
-      outDir: path.resolve(__dirname, '..', 'src', 'fac'),
+      outDir: path.resolve(__dirname, '..', 'pkg-fac'),
+    }),
+    new WasmPackPlugin({
+      crateDirectory: path.resolve(__dirname, '..', 'env'),
+      outDir: path.resolve(__dirname, '..', 'pkg-env'),
     }),
     new EslintPlugin({ eslintPath: require.resolve('eslint') }),
     new HtmlWebpackPlugin({
