@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useMemo, useState } from 'react';
 import { render } from 'react-dom';
 import browser from 'webextension-polyfill';
 import {
@@ -36,6 +36,14 @@ const App: FunctionComponent = () => {
   const [themeLoaded, setThemeLoaded] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
 
+  const loadingState = useMemo(
+    () => ({
+      isLoading: loading,
+      setLoading,
+    }),
+    [loading],
+  );
+
   useEffect(() => {
     const updateTheme = async () => {
       const newTheme =
@@ -58,12 +66,7 @@ const App: FunctionComponent = () => {
   }
 
   return (
-    <LoadingContext.Provider
-      value={{
-        isLoading: loading,
-        setLoading,
-      }}
-    >
+    <LoadingContext.Provider value={loadingState}>
       <ThemeProvider theme={currentTheme}>
         <Global />
         <Main />
