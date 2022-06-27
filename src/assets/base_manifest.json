@@ -12,7 +12,8 @@
     "48": "icons/48.png",
     "64": "icons/64.png",
     "96": "icons/96.png",
-    "128": "icons/128.png"
+    "128": "icons/128.png",
+    "256": "icons/256.png"
   },
   "permissions": ["storage", "alarms"],
   "content_scripts": [
