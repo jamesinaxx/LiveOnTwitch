@@ -8,8 +8,8 @@
   "license": "MIT",
   "author": "jewlexx",
   "scripts": {
-    "build": "rimraf dist && parcel build manifest.json",
-    "dev": "parcel watch manifest.json",
+    "build": "rimraf dist && webpack --config webpack/webpack.prod.js",
+    "dev": "webpack --config webpack/webpack.dev.js --watch",
     "fmt": "prettier --write ./src/*/**.{ts,tsx} --ignore-path .gitignore",
     "fmt:check": "prettier --check ./src/*/**.{ts,tsx} --ignore-path .gitignore",
     "icons": "node scripts/icons.js",
@@ -42,7 +42,9 @@
     "@typescript-eslint/eslint-plugin": "6.6.0",
     "@typescript-eslint/parser": "6.6.0",
     "browserslist": "4.21.10",
+    "copy-webpack-plugin": "11.0.0",
     "cross-env": "7.0.3",
+    "css-loader": "6.8.1",
     "eslint": "8.48.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "9.0.0",
@@ -57,7 +59,12 @@
     "process": "0.11.10",
     "rimraf": "5.0.1",
     "sharp": "0.32.5",
-    "typescript": "5.2.2"
+    "style-loader": "3.3.3",
+    "ts-loader": "9.4.4",
+    "typescript": "5.2.2",
+    "webpack": "5.88.2",
+    "webpack-cli": "5.1.4",
+    "webpack-merge": "5.9.0"
   },
   "packageManager": "pnpm@8.7.3"
 }
