@@ -70,6 +70,7 @@ const config = {
     'react/function-component-definition': 'off',
     'react/destructuring-assignment': 'off',
     'no-confusing-arrow': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
 
