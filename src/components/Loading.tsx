@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { buttonColor } from '../styleMixins';
+import { buttonColor } from '../popup/styleMixins';
 
 const ScreenContainer = styled.div`
   width: 100vw;

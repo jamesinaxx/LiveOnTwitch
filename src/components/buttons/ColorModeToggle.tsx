@@ -1,7 +1,7 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import styled, { useTheme } from 'styled-components';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { controlButton } from '../../styleMixins';
+import { controlButton } from '../../popup/styleMixins';
 import { setStorageLocal } from '../../lib/chromeapi';
 
 interface ColorToggleProps {

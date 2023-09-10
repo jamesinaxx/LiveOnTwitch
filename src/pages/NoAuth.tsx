@@ -1,6 +1,6 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import { smolText } from '../styleMixins';
+import { smolText } from '../popup/styleMixins';
 
 const NoAuthText = styled.small`
   text-align: center;

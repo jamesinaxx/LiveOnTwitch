@@ -11,9 +11,9 @@ import {
   ThemeProvider,
   createGlobalStyle,
 } from 'styled-components';
-import { getStorageLocal } from './lib/chromeapi';
-import LoadingContext from './lib/LoadingContext';
-import Main from './pages/main';
+import { getStorageLocal } from '../lib/chromeapi';
+import LoadingContext from '../lib/LoadingContext';
+import Main from '../pages/main';
 import Themes from './theme';
 import '@fontsource/noto-sans';
 

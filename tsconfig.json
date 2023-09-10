@@ -1,16 +1,24 @@
 {
   "compilerOptions": {
-    "lib": ["ES2021", "DOM"],
-    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
     "jsx": "react-jsx",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "strict": true,
     "typeRoots": ["./src/types"],
+    "types": ["vite/client"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "rootDir": "./",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "es2016",
+    "incremental": false,
+    "moduleResolution": "node",
     "importHelpers": true,
-    "removeComments": true
-  }
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "exclude": ["dist", "node_modules"]
 }

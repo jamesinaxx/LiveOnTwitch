@@ -1,7 +1,7 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
 import styled from 'styled-components';
-import { controlButton } from '../../styleMixins';
+import { controlButton } from '../../popup/styleMixins';
 
 interface LogoutButtonProps {
   onClick: () => void;

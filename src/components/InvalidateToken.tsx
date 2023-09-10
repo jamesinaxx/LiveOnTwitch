@@ -1,6 +1,6 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import { buttonClicked, buttonColor, buttonHover } from '../styleMixins';
+import { buttonClicked, buttonColor, buttonHover } from '../popup/styleMixins';
 
 interface InvalidateTokenProps {
   onChoice: (invalidate: boolean) => void;

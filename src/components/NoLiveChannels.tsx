@@ -1,5 +1,5 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
-import { SmallText } from '../styleMixins';
+import { SmallText } from '../popup/styleMixins';
 
 const NoLiveChannels: FunctionComponent<PropsWithChildren<unknown>> = () => (
   <SmallText>

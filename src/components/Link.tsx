@@ -1,6 +1,6 @@
 import type { FunctionComponent, PropsWithChildren } from 'react';
 import { useTheme } from 'styled-components';
-import { Anchor } from '../styleMixins';
+import { Anchor } from '../popup/styleMixins';
 
 interface LinkProps {
   href: string;
