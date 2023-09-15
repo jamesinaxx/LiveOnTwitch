@@ -8,6 +8,7 @@ import React from '@vitejs/plugin-react';
 import Icons from 'unplugin-icons/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 import UnoCSS from 'unocss/vite';
+import secrets from './secrets';
 import { isDev, port, r } from './scripts/utils';
 import packageJson from './package.json';
 
@@ -21,6 +22,7 @@ export const sharedConfig: UserConfig = {
   define: {
     __DEV__: isDev,
     __NAME__: JSON.stringify(packageJson.name),
+    ...secrets,
   },
   plugins: [
     React(),
