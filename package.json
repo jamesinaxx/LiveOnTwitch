@@ -62,7 +62,7 @@
     "prettier": "3.0.3",
     "process": "0.11.10",
     "rimraf": "5.0.1",
-    "sharp": "0.32.5",
+    "sharp": "0.32.6",
     "typescript": "5.2.2",
     "wasm-pack": "0.12.1",
     "web-ext": "7.7.0"
